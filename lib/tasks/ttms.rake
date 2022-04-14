@@ -13,5 +13,10 @@ namespace :ttms do
     block = Glueby::Internal::RPC.client.generatetoaddress(1, address, ENV['AUTHORITY_KEY'])
     Rake.application['glueby:block_syncer:start'].execute
     puts "wallet.balances: #{wallet.balances}"
+
+    file = File.open('.env','a')
+    file.puts "WALLET_ID=#{wallet.id}"
+    file.close
+    puts ".env has updated"
   end
 end
