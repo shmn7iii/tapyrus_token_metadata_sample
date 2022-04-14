@@ -102,6 +102,9 @@ GEM
     glueby (0.4.2)
       activerecord
       tapyrus (>= 0.2.9)
+    hpricot (0.8.6)
+    html2slim (0.2.0)
+      hpricot
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     iniparse (1.5.0)
@@ -205,6 +208,9 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
     siphash (0.0.1)
+    slim (4.1.0)
+      temple (>= 0.7.6, < 0.9)
+      tilt (>= 2.0.6, < 2.1)
     sprockets (4.0.3)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -229,7 +235,9 @@ GEM
       murmurhash3
       siphash
       thor
+    temple (0.8.2)
     thor (1.2.1)
+    tilt (2.0.10)
     timeout (0.2.0)
     turbo-rails (1.0.1)
       actionpack (>= 6.0.0)
@@ -262,6 +270,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   glueby
+  html2slim
   jbuilder
   jsbundling-rails
   psych (< 4.0.0)
@@ -269,6 +278,7 @@ DEPENDENCIES
   rails (~> 7.0.2, >= 7.0.2.3)
   rubocop
   selenium-webdriver
+  slim
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
