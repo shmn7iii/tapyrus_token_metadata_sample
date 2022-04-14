@@ -23,4 +23,6 @@ sample: [.env](/.env)
 $ bundle install
 $ rails db:create
 $ rails s
+
+$ rails ttms:init
 ```
