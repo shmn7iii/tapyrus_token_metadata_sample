@@ -1,8 +1,8 @@
 namespace :ttms do
   desc 'get init coin'
   task init: :environment do
-    puts ""
-    puts "=== init ==="
+    puts ''
+    puts '=== init ==='
 
     wallet = Glueby::Wallet.create
     puts "create wallet: #{wallet.id}"
@@ -14,9 +14,9 @@ namespace :ttms do
     Rake.application['glueby:block_syncer:start'].execute
     puts "wallet.balances: #{wallet.balances}"
 
-    file = File.open('.env','a')
+    file = File.open('.env', 'a')
     file.puts "WALLET_ID=#{wallet.id}"
     file.close
-    puts ".env has updated"
+    puts '.env has updated'
   end
 end
