@@ -15,6 +15,7 @@ gem 'sqlite3', '~> 1.4'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'psych', '< 4.0.0'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
