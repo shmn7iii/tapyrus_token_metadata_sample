@@ -1,24 +1,26 @@
-# README
+# Tapyrus Token with Metadata Sample
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby: 3.1.2
+Rails: 7.0.1.2
 
-Things you may want to cover:
+## setup
 
-* Ruby version
+### tapyrus node (dev) on docker
 
-* System dependencies
+sample:
 
-* Configuration
+```bash
+docker run -d --name 'tapyrus_node_dev' -p 12381:12381 -e GENESIS_BLOCK_WITH_SIG='0100000000000000000000000000000000000000000000000000000000000000000000002b5331139c6bc8646bb4e5737c51378133f70b9712b75548cb3c05f9188670e7440d295e7300c5640730c4634402a3e66fb5d921f76b48d8972a484cc0361e66ef74f45e012103af80b90d25145da28c583359beb47b21796b2fe1a23c1511e443e7a64dfdb27d40e05f064662d6b9acf65ae416379d82e11a9b78cdeb3a316d1057cd2780e3727f70a61f901d10acbe349cd11e04aa6b4351e782c44670aefbe138e99a5ce75ace01010000000100000000000000000000000000000000000000000000000000000000000000000000000000ffffffff0100f2052a010000001976a91445d405b9ed450fec89044f9b7a99a4ef6fe2cd3f88ac00000000' tapyrus/tapyrusd:v0.5.0
+```
 
-* Database creation
+### .env
 
-* Database initialization
+sample: [.env](/.env)
 
-* How to run the test suite
+### rails
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bash
+$ bundle install
+$ rails db:create
+$ rails s
+```
