@@ -1,0 +1,13 @@
+h1
+  | Create NFT
+p
+  | Create NFT with metadata.
+
+
+div.raw.card.card-body
+  = form_with(url: 'create') do |f|
+    .mb-3
+      = f.label :cid, class: "form-label"
+      = f.text_field :cid, class: 'form-control', placeholder: "IPFS CID"
+    .center
+      = f.submit "Issue token", class: "btn btn-primary"
