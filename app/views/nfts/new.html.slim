@@ -1,14 +1,13 @@
-
 h1
-  | Create NFT
+  | Create Tapyrus NFT with Metadata
 p
-  | Create NFT with metadata.
-
+  | Input Metadata, like a IPFS CID. Not support file upload now.
 
 div.card.card-body
   = form_with(url: 'create') do |f|
     .mb-3
       = f.label :metadata, class: "form-label"
+      // TODO: これバリデーション欲しいね
       = f.text_field :metadata, class: 'form-control', placeholder: "Metadata ex)IPFS CID", required: "required"
     .center
       = f.submit "Issue token", class: "btn btn-primary"

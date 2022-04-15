@@ -59,7 +59,7 @@ div.tx-data.card
               br
               | 　Hashed Metadata: #{vout['scriptPubKey']['asm'].split()[1]}
               br
-              | 　Row Metadata: #{decode_metadata(vout['scriptPubKey']['asm'].split()[1]).force_encoding("UTF-8") }
+              | 　Row Metadata: #{decode_metadata(vout['scriptPubKey']['asm'].split()[1]).force_encoding("UTF-8")}
           - else
             p.card-text
             | Token: #{vout['token']}
