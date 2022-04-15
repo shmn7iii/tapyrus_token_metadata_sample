@@ -14,6 +14,4 @@ $ ./bin/setup
 # start containers. this include tails, tapyrusd, ipfs.
 $ docker-compose up
 
-# setup for ttms, create master wallet.
-$ ./bin/rails ttms:init
 ```
