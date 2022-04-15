@@ -8,6 +8,12 @@ Rails: 7.0.1.2
 required: nodejs, yarn, docker, docker-compose
 
 ```bash
+# setup bundle, database, and so on.
 $ ./bin/setup
+
+# start containers. this include tails, tapyrusd, ipfs.
 $ docker-compose up
+
+# setup for ttms, create master wallet.
+$ ./bin/rails ttms:init
 ```
