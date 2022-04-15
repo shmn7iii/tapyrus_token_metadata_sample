@@ -1,10 +1,11 @@
+
 h1
   | Create NFT
 p
   | Create NFT with metadata.
 
 
-div.raw.card.card-body
+div.card.card-body
   = form_with(url: 'create') do |f|
     .mb-3
       = f.label :metadata, class: "form-label"

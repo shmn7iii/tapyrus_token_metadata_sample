@@ -2,10 +2,10 @@ class NftsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def show
-    txid = params[:txid]
-    rawtransaction = Glueby::Internal::RPC.client.getrawtransaction(txid.to_s)
-    decodedtransaction = Glueby::Internal::RPC.client.decoderawtransaction(rawtransaction)
-    @json = JSON.pretty_generate(decodedtransaction)
+    # txid = params[:txid]
+    # rawtransaction = Glueby::Internal::RPC.client.getrawtransaction(txid.to_s)
+    # @decodedtransaction = Glueby::Internal::RPC.client.decoderawtransaction(rawtransaction)
+    # @json = JSON.pretty_generate(@decodedtransaction)
   end
 
   def new; end
@@ -29,6 +29,6 @@ class NftsController < ApplicationController
       retry
     end
 
-    redirect_to ntfs_show_path(txid: token[1].txid)
+    redirect_to transactions_show_path(txid: token[1].txid)
   end
 end
