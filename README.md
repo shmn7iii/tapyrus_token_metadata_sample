@@ -14,4 +14,9 @@ $ ./bin/setup
 # start containers. this include tails, tapyrusd, ipfs.
 $ docker-compose up
 
+# ttms init
+$ docker-compose exec rails rails ttms:init
+
+# restart
+$ docker-compose restart
 ```
