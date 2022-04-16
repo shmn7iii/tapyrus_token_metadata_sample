@@ -13,8 +13,7 @@ FileUtils.chdir APP_ROOT do
   system('bundle check') || system!('bundle install')
 
   puts "\n== Compiling assets =="
-  system! 'yarn build'
-  system! 'yarn build:css'
+  system! 'bin/rails assets:precompile'
 
   puts "\n== Preparing database =="
   system! 'bin/rails db:prepare'
