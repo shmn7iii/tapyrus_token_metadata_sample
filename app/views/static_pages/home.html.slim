@@ -1,2 +1,12 @@
-h1
-  | よぉ。
+div.card.card-body
+  h2.card-title
+    | Sample of issuing token with metadata on Tapyrus 
+  p.card-text[style="text-align: left;"]
+    | Tapyrusのトークンにオンチェーンでメタデータを付与するデモ。
+    | OP_RETURNの後ろに任意データを仕込んだスクリプトを持つアウトプットを発行トランザクションに捩じ込むことでオンチェーンでのメタデータを実現した。
+    | またOP_RETURNの後ろに入れるデータもIPFSのCIDにすることであらゆる容量、ファイル形式のデータを格納することが可能になっている。
+
+  p.card-text[style="text-align: left;"]
+    | 現在の対応トークンはNFTのみ。
+
+  = link_to "Issue NFT now!", nfts_new_path, class: "btn btn-primary"
