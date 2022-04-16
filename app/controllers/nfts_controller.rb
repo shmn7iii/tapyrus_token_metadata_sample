@@ -40,15 +40,21 @@ class NftsController < ApplicationController
       token = Glueby::Contract::Token.issue_nft_with_metadata(issuer: wallet, prefix: '', metadata: @cid)
     rescue Glueby::Contract::Errors::InsufficientFunds
       # deposit
-      block = Glueby::Internal::RPC.client.generatetoaddress(1, wallet.internal_wallet.receive_address,
-                                                             ENV['AUTHORITY_KEY'])
-      Rails.application.load_tasks
-      Rake::Task['glueby:block_syncer:start'].execute
-      Rake::Task['glueby:block_syncer:start'].clear
+      generateBlock(wallet)
       retry
     end
+    generateBlock(wallet)
 
     flash[:success] = 'Success!'
     redirect_to transactions_show_path(txid: token[1].txid)
+  end
+
+  private
+
+  def generateBlock(wallet)
+    block = Glueby::Internal::RPC.client.generatetoaddress(1, wallet.internal_wallet.receive_address, ENV['AUTHORITY_KEY'])
+    Rails.application.load_tasks
+    Rake::Task['glueby:block_syncer:start'].execute
+    Rake::Task['glueby:block_syncer:start'].clear
   end
 end
