@@ -47,6 +47,12 @@ div.tx-data.card
             p.card-text
               | This is Metadata output.
             p.card-text
+              | Metadata
+              br
+              - cid = decode_metadata(vout['scriptPubKey']['asm'].split()[1]).force_encoding("UTF-8")
+              | 　IPFS CID:
+              = link_to "#{cid}", "localhost:8080/ipfs/#{cid}"
+            p.card-text
               | scriptPubkey
               br
               | 　asm: #{vout['scriptPubKey']['asm']}
@@ -54,12 +60,6 @@ div.tx-data.card
               | 　hex: #{vout['scriptPubKey']['hex']}
               br
               | 　type: #{vout['scriptPubKey']['type']}
-            p.card-text
-              | Metadata
-              br
-              | 　Hashed Metadata: #{vout['scriptPubKey']['asm'].split()[1]}
-              br
-              | 　Row Metadata: #{decode_metadata(vout['scriptPubKey']['asm'].split()[1]).force_encoding("UTF-8")}
           - else
             p.card-text
             | Token: #{vout['token']}

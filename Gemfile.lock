@@ -113,6 +113,7 @@ GEM
       concurrent-ruby (~> 1.0)
     iniparse (1.5.0)
     io-console (0.5.11)
+    ipfs-api (0.3.0)
     irb (1.4.1)
       reline (>= 0.3.0)
     jbuilder (2.11.5)
@@ -279,6 +280,7 @@ DEPENDENCIES
   dotenv-rails
   glueby
   html2slim
+  ipfs-api
   jbuilder
   jsbundling-rails
   psych (< 4.0.0)
