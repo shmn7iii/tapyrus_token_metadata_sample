@@ -12,7 +12,7 @@ header.p-3.mb-3.border-bottom
     .searchBox
       = form_with(url: transactions_search_path) do |f|
         .d-flex
-          = f.text_field :color_id, class: "form-control", required: "required", placeholder:"Search Tx from COLOR_ID"
+          = f.text_field :color_id, class: "form-control", required: "required", placeholder:"COLOR_ID or TxID"
           = f.submit "Search", class: "btn btn-outline-success mx-1"
 
     div.text-end

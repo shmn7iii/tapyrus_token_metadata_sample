@@ -1,11 +1,11 @@
-h1
+h2
   | Create Tapyrus NFT with Metadata
-p
-  | Select Upload file. File will uploaded to IPFS.
 
-div.card.card-body
+div.card.card-body[style="max-width: 500px"]
+  p[style="text-align: left;"]
+    | Select Metadata file. File will be uploaded to IPFS.
   = form_with(url: 'create') do |f|
     .mb-3
       = f.file_field :upload_file, class: "form-control", required: "required"
     .center
-      = f.submit "Issue token", class: "btn btn-primary"
+      = f.submit "Issue token", class: "btn btn-outline-primary"

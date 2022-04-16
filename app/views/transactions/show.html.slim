@@ -1,6 +1,6 @@
-h1 Transaction Data
+h2 Transaction Data
 
-div.tx-data.card
+div.card[style="text-align: left;"]
   .card-header
     h5.card-title
       | TxInfo
@@ -16,13 +16,13 @@ div.tx-data.card
             | TxIn[#{n}]
 
           - unless vin['coinbase'].nil?
-            p.card-text
+            pre.card-text
               | This is coinbase transaction.
               br
               | Coinbase: "#{vin['coinbase']}"
 
           - else
-            p.card-text
+            pre.card-text
               | TxID: 
               = link_to "#{vin['txid']}", transactions_show_path(txid: vin['txid'])
               br
@@ -34,25 +34,25 @@ div.tx-data.card
             | TxOut[#{n}]
 
           - if vout['token'].start_with?('c1')
-            p.card-text
+            pre.card-text
               | This is Reissuable Token.
           - elsif vout['token'].start_with?('c2')
-            p.card-text
+            pre.card-text
               | This is Non-Reissuable Token.
           - elsif vout['token'].start_with?('c3')
-            p.card-text
+            pre.card-text
               | This is NFT.
 
           - if vout['scriptPubKey']['asm'].start_with?('OP_RETURN')
-            p.card-text
+            pre.card-text
               | This is Metadata output.
-            p.card-text
+            pre.card-text
               | Metadata
               br
               - cid = decode_metadata(vout['scriptPubKey']['asm'].split()[1]).force_encoding("UTF-8")
               | 　IPFS CID: 
               = link_to "#{cid}", "localhost:8080/ipfs/#{cid}"
-            p.card-text
+            pre.card-text
               | scriptPubkey
               br
               | 　asm: #{vout['scriptPubKey']['asm']}
@@ -61,14 +61,14 @@ div.tx-data.card
               br
               | 　type: #{vout['scriptPubKey']['type']}
           - else
-            p.card-text
-            | Token: #{vout['token']}
-            br
-            | Value: #{vout['value']}
+            pre.card-text
+              | Token: #{vout['token']}
+              br
+              | Value: #{vout['value']}
 
       li.list-group-item
         .text-end
-          button[class="btn btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"]
+          button[class="btn btn-outline-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"]
             | Show raw content
         .collapse#collapseExample
           .card.card-body
