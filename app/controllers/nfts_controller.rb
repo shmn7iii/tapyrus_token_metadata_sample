@@ -3,6 +3,14 @@ class NftsController < ApplicationController
 
   skip_before_action :verify_authenticity_token
 
+  def index
+    @nfts = []
+    listunspents = Glueby::Wallet.load(ENV['WALLET_ID']).internal_wallet.list_unspent
+    listunspents.each do |listunspent|
+      @nfts << listunspent if listunspent[:color_id]&.start_with?('c3')
+    end
+  end
+
   def new; end
 
   def create

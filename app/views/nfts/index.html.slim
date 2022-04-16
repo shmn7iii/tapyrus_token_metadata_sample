@@ -1,0 +1,15 @@
+.tokens-header
+  div
+    h2 NFTs 
+  div
+    = link_to "Issue", nfts_new_path, class: "btn btn-outline-primary"
+.tokens
+  .card.card-body
+    ul.list-group.list-group-flush
+      - @nfts.each do |nft|
+        li.list-group-item[style="text-align: left;"]
+          p
+            | COLOR_ID: #{nft[:color_id]}
+          p
+            | TxID: 
+            = link_to "#{nft[:txid]}", transactions_show_path(txid: nft[:txid])
