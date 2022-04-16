@@ -14,9 +14,11 @@ $ ./bin/setup
 # start containers. this include tails, tapyrusd, ipfs.
 $ docker-compose up
 
-# ttms init
+# ttms init, create wallet. this depends tapyrusd.
 $ docker-compose exec rails rails ttms:init
 
 # restart
 $ docker-compose restart
 ```
+
+Go [localhost:3000](localhost:3000)
