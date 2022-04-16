@@ -8,7 +8,7 @@ class NftsController < ApplicationController
   def create
     # write file
     upload_file = params[:upload_file]
-    upload_dir = Rails.root.join("tmp", "storage")
+    upload_dir = Rails.root.join('tmp', 'storage')
     upload_file_path = upload_dir + Time.now.to_i.to_s
     File.binwrite(upload_file_path, upload_file.read)
 
