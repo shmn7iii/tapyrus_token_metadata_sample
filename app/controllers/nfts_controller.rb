@@ -29,7 +29,7 @@ class NftsController < ApplicationController
 
     # create token
     begin
-      token = Glueby::Contract::Token.issue_nft_with_metadata(wallet: wallet, prefix: '', metadata: @cid)
+      token = Glueby::Contract::Token.issue_nft_with_metadata(issuer: wallet, prefix: '', metadata: @cid)
     rescue Glueby::Contract::Errors::InsufficientFunds
       # deposit
       block = Glueby::Internal::RPC.client.generatetoaddress(1, wallet.internal_wallet.receive_address,
@@ -40,6 +40,7 @@ class NftsController < ApplicationController
       retry
     end
 
+    flash[:success] = 'Success!'
     redirect_to transactions_show_path(txid: token[1].txid)
   end
 end

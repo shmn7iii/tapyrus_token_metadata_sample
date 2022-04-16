@@ -2,16 +2,16 @@ module GluebyTap
   module Contract
     module Token
       # issue NFT with metadata
-      # @param [Glueby::Wallet] wallet issuer's wallet
+      # @param [Glueby::Wallet] issuer issuer's wallet
       # @param [String] prefix prefix of content
       # @param [Srting] metadata metadata
-      def issue_nft_with_metadata(wallet:, prefix:, metadata:)
+      def issue_nft_with_metadata(issuer:, prefix:, metadata:)
         # raw content convert to hex
         data = metadata.unpack1('H*')
         # create tx
-        tx = create_tx_for_nft_with_metadata(issuer: wallet, prefix:, data:)
+        tx = create_tx_for_nft_with_metadata(issuer: issuer, prefix:, data:)
         # broadcast tx
-        tx = wallet.internal_wallet.broadcast(tx)
+        tx = issuer.internal_wallet.broadcast(tx)
         # get token_id
         out_point = tx.inputs.first.out_point
         color_id = Tapyrus::Color::ColorIdentifier.nft(out_point)
