@@ -1,12 +1,9 @@
 class TransactionsController < ApplicationController
-
   def search
     txid = nil
     listunspents = Glueby::Wallet.load(ENV['WALLET_ID']).internal_wallet.list_unspent
     listunspents.each do |listunspent|
-      if listunspent[:color_id] == params[:color_id]
-        txid = listunspent[:txid]
-      end
+      txid = listunspent[:txid] if listunspent[:color_id] == params[:color_id]
     end
 
     if txid
