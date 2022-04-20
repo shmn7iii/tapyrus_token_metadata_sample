@@ -1,5 +1,6 @@
 # Tapyrus Token with Metadata Sample
-[Tapyrus Tokenにメタデータを付与 - shmn7iii blog](https://blog.shmn7iii.net/tapyrus-token-metadata)
+
+[Tapyrus Token にメタデータを付与 - shmn7iii blog](https://blog.shmn7iii.net/tapyrus-token-metadata)
 
 ### Sample of issuing token with metadata on Tapyrus.
 
@@ -8,7 +9,6 @@ Tapyrus でメタデータを付与したトークンを発行するサンプル
 ![fig1](./doc/fig1.jpeg)
 
 [Tap!](https://github.com/shmn7iii/tap-api) で行った実装の切り出し。
-
 
 ## spec
 
@@ -24,13 +24,7 @@ required: nodejs, yarn, docker, docker-compose
 $ ./bin/setup
 
 # start containers. this include tails, tapyrusd, ipfs.
-$ docker-compose up -d
-
-# ttms init, create wallet. this depends tapyrusd.
-$ docker-compose exec rails rails ttms:init
-
-# restart
-$ docker-compose restart
+$ docker-compose up
 ```
 
 Go [localhost:3000](localhost:3000)
