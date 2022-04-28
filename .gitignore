@@ -40,3 +40,4 @@
 /node_modules
 .env
 db/schema.rb
+.hadolint.yaml
