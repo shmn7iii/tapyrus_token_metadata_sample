@@ -23,7 +23,7 @@ FileUtils.chdir APP_ROOT do
 
   puts "\n== Initializeing TTMS =="
   system! 'bin/rails ttms:init'
-  system! 'mkdir tmp/storage'
+  system! 'mkdir -p tmp/storage'
 
   puts "\n== Restarting application server =="
   system! 'bin/rails restart'
