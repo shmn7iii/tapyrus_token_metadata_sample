@@ -11,7 +11,7 @@ services:
       - ipfs
       - tapyrusd
   ipfs:
-    image: ipfs/go-ipfs:master-2022-04-15-d59730f
+    image: ipfs/go-ipfs:master-latest
     ports:
       - "8080:8080"
   tapyrusd:
